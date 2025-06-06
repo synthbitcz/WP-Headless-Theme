@@ -1,0 +1,88 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Headless WordPress Theme 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 12:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+msgid "Headless Settings"
+msgstr ""
+
+msgid "Frontend Application URL"
+msgstr ""
+
+msgid "The URL of your frontend application where users will be redirected."
+msgstr ""
+
+msgid "Redirect Settings"
+msgstr ""
+
+msgid "Enable automatic redirects"
+msgstr ""
+
+msgid "Redirect delay (seconds):"
+msgstr ""
+
+msgid "0 = Immediate server-side redirect (recommended for SEO)"
+msgstr ""
+
+msgid "CORS Settings"
+msgstr ""
+
+msgid "Enable CORS headers"
+msgstr ""
+
+msgid "Enable for REST API"
+msgstr ""
+
+msgid "Allowed Origins"
+msgstr ""
+
+msgid "Enter one origin per line. Leave empty to allow all origins (*)"
+msgstr ""
+
+msgid "Allow credentials"
+msgstr ""
+
+msgid "Enable only if frontend sends cookies/authentication"
+msgstr ""
+
+msgid "Security Settings"
+msgstr ""
+
+msgid "Add security headers"
+msgstr ""
+
+msgid "Adds security headers like X-Frame-Options, X-Content-Type-Options, etc."
+msgstr ""
+
+msgid "Redirecting..."
+msgstr ""
+
+msgid "You are being redirected to our frontend application."
+msgstr ""
+
+msgid "Click here if you are not redirected automatically"
+msgstr ""
+
+msgid "Page Not Found"
+msgstr ""
+
+msgid "The page you are looking for does not exist."
+msgstr ""
+
+msgid "Visit our frontend application"
+msgstr "" 

@@ -15,6 +15,7 @@ class HeadlessTheme {
     
     public function __construct() {
         add_action('after_setup_theme', [$this, 'theme_setup']);
+        add_action('init', [$this, 'load_textdomain']);
         add_action('admin_menu', [$this, 'add_admin_menu']);
         add_action('admin_init', [$this, 'register_settings']);
         add_action('init', [$this, 'handle_cors']);
@@ -33,9 +34,6 @@ class HeadlessTheme {
         add_theme_support('title-tag');
         add_theme_support('post-thumbnails');
         
-        // Load text domain
-        load_theme_textdomain('headless-theme', get_template_directory() . '/languages');
-        
         // Remove unnecessary theme features
         remove_theme_support('widgets-block-editor');
         
@@ -46,6 +44,13 @@ class HeadlessTheme {
         remove_action('wp_head', 'wlwmanifest_link');
         remove_action('wp_head', 'rsd_link');
         remove_action('wp_head', 'wp_shortlink_wp_head');
+    }
+    
+    /**
+     * Load text domain
+     */
+    public function load_textdomain() {
+        load_theme_textdomain('headless-theme', get_template_directory() . '/languages');
     }
     
     /**
@@ -551,42 +556,29 @@ class HeadlessTheme {
 // Initialize the theme
 new HeadlessTheme();
 
-// Load additional modules
-require_once get_template_directory() . '/includes/api-enhancements.php';
-require_once get_template_directory() . '/includes/webhooks-cache.php';
+// Load additional modules safely
+$api_enhancements_file = get_template_directory() . '/includes/api-enhancements.php';
+$webhooks_cache_file = get_template_directory() . '/includes/webhooks-cache.php';
+
+if (file_exists($api_enhancements_file)) {
+    require_once $api_enhancements_file;
+}
+
+if (file_exists($webhooks_cache_file)) {
+    require_once $webhooks_cache_file;
+}
 
 /**
- * Required template functions
+ * Helper functions for theme
  */
-function wp_head() {
-    do_action('wp_head');
+if (!function_exists('headless_get_body_class')) {
+    function headless_get_body_class() {
+        return 'class="headless-theme"';
+    }
 }
 
-function wp_footer() {
-    do_action('wp_footer');
-}
-
-function get_header() {
-    echo '<!DOCTYPE html>';
-    echo '<html ' . get_language_attributes() . '>';
-    echo '<head>';
-    echo '<meta charset="' . get_bloginfo('charset') . '">';
-    echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
-    wp_head();
-    echo '</head>';
-    echo '<body ' . get_body_class() . '>';
-}
-
-function get_footer() {
-    wp_footer();
-    echo '</body>';
-    echo '</html>';
-}
-
-function get_body_class() {
-    return 'class="headless-theme"';
-}
-
-function get_language_attributes() {
-    return 'lang="' . get_bloginfo('language') . '"';
+if (!function_exists('headless_get_language_attributes')) {
+    function headless_get_language_attributes() {
+        return 'lang="' . get_bloginfo('language') . '"';
+    }
 } 

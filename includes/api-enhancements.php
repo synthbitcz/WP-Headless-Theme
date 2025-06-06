@@ -261,7 +261,7 @@ class HeadlessAPIEnhancements {
         
         // Only return public meta fields (not starting with _)
         foreach ($meta as $key => $value) {
-            if (!str_starts_with($key, '_')) {
+            if (strpos($key, '_') !== 0) {
                 $filtered_meta[$key] = is_array($value) && count($value) === 1 ? $value[0] : $value;
             }
         }

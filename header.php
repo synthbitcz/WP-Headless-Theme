@@ -16,4 +16,4 @@ if (!defined('ABSPATH')) {
     <meta name="robots" content="noindex, nofollow">
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>> 
+<body <?php body_class('headless-theme'); ?>> 
